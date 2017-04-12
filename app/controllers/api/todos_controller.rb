@@ -1,5 +1,6 @@
 # app/controllers/todos_controller.rb
-class API::TodosController < ApplicationController
+module API
+class TodosController < ApplicationController
   before_action :set_todo, only: [:show, :update, :destroy]
 
   # GET /todos
@@ -41,4 +42,5 @@ class API::TodosController < ApplicationController
   def set_todo
     @todo = Todo.find(params[:id])
   end
+end
 end
