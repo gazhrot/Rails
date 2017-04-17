@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Todo.delete_all
+Item.delete_all
+
+
+100.times do |n|
+  Todo.create({title: Faker::Lorem.words(3), created_by: n})
+  Item.create([{name: Faker::Name.unique.name, done: false, todo: Todo.find(207 + n)},{name: Faker::Name.unique.name, done: false, todo: Todo.find(207 + n)}])
+end

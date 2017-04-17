@@ -1,4 +1,4 @@
-# app/controllers/todos_controller.rb
+# app/controllers/api/todos_controller.rb
 module API
 class TodosController < ApplicationController
   before_action :set_todo, only: [:show, :update, :destroy]
