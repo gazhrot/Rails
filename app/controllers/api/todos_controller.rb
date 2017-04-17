@@ -5,7 +5,14 @@ class TodosController < ApplicationController
 
   # GET /todos
   def index
-    @todos = Todo.all
+    todos = $redis.get("todos")
+    logger.debug(todos)
+    if todos.nil?
+      todos = Todo.all.to_json
+      $redis.set("todos", todos)
+      $redis.expire("todos", 3.hour.to_i)
+    end
+    @todos = JSON.load todos
     json_response(@todos)
   end
 
