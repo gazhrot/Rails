@@ -3,7 +3,7 @@ class CreateEnterpriseUsers < ActiveRecord::Migration[5.1]
     create_table :enterprise_users do |t|
       t.references :user, foreign_key: true
       t.references :enterprise, foreign_key: true
-      t.int :role
+      t.integer :role
 
       t.timestamps
     end
