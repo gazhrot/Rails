@@ -11,13 +11,12 @@ Rails.application.routes.draw do
       resources :order_histories
       resources :visit_histories
       resources :user_clients
+      resources :enterprise_users
     end
+    post '/users/:id/enterprise/join', to: 'users#join_enterprise'
 
     resources :clients
-
-    resources :enterprise do
-        resources :enterprise_users
-    end
+    resources :enterprises
 
   end
 end
