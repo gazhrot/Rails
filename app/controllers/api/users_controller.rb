@@ -28,10 +28,21 @@ class UsersController < ApplicationController
   end
 
   def join_enterprise
-    
+    @user = User.find(params[:id])
+    @user.update(code_enterprise)
+    @enterprise = Enterprise.where(code_enterprise: code_enterprise[:code_enterprise]).take
+    json_response(@enterprise)
+    EnterpriseUser.create!()
+    #logger.debug('enterprise with code enterprise?', @enterprise)
+    #@test = EnterpriseUser.create!(enterprise_user_params)
+    #logger.debug('test', @test)
   end
 
   private
+
+  def code_enterprise
+    params.permit(:code_enterprise)
+  end
 
   def user_params
     params.permit(:first_name, :last_name, :email, :password, :role, :token, :code_enterprise)

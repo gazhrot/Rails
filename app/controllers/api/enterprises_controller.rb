@@ -29,11 +29,11 @@ class EnterprisesController < ApplicationController
   private
 
   def enterprise_params
-    params.permit(:name)
+    params.permit(:name, :code_enterprise)
   end
 
   def set_enterprise
-    @user = Enterprise.find(params[:id])
+    @enterprise = Enterprise.find(params[:id])
   end
 
 end
