@@ -8,14 +8,15 @@ Rails.application.routes.draw do
     end
 
     resources :users do
-      resources :clients
       resources :order_histories
       resources :visit_histories
+      resources :user_clients
     end
 
-    resources :enterprise_users do
-      resources :users
-      resources :enterprises
+    resources :clients
+
+    resources :enterprise do
+        resources :enterprise_users
     end
 
   end
