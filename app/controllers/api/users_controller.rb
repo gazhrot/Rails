@@ -27,6 +27,10 @@ class UsersController < ApplicationController
     json_response(@user)
   end
 
+  def join_enterprise
+    
+  end
+
   private
 
   def user_params
