@@ -3,5 +3,5 @@ class Enterprise < ApplicationRecord
   has_many :enterprise_users
   has_many :users, :through => :enterprise_users
   #validations
-  validates_presence_of :name
+  validates_presence_of :name, :code_enterprise
   end
